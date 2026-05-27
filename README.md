@@ -6,16 +6,6 @@ Créez et apposez des tampons d'entreprise sur vos PDF — directement dans le n
 
 ---
 
-## Aperçu
-
-| Personnalisation | Apposition PDF |
-|-----------------|----------------|
-| Texte, forme, couleur, police, rotation | Glisser-déposer, redimensionnement, nudge clavier |
-| Taille de police par zone | Page courante, toutes les pages, plage |
-| Export SVG & PNG | Téléchargement immédiat, aucun upload |
-
----
-
 ## Utilisation
 
 Double-cliquez sur **`TamponNumerique.html`** — c'est tout.
@@ -89,23 +79,9 @@ Articles R123-237 à R123-238 du Code de commerce — mentions recommandées sur
 
 ---
 
-## Stack
+## Pour aller plus loin
 
-| | |
-|-|-|
-| [React 18](https://react.dev) | UI |
-| [pdf-lib 1.17](https://pdf-lib.js.org) | Écriture PDF, rotation |
-| [PDF.js 3.11](https://mozilla.github.io/pdf.js/) | Rendu PDF |
-| [Babel Standalone](https://babeljs.io/docs/babel-standalone) | JSX in-browser |
-| Google Fonts (Cinzel, Oswald, Ultra…) | Polices embarquées |
-
-Tout est compressé (gzip) et encodé en base64 dans le fichier HTML. Décompression à la volée via l'API native `DecompressionStream` du navigateur.
-
----
-
-## Confidentialité
-
-Aucune donnée ne quitte votre machine. Les PDF, les textes et les templates restent sur votre ordinateur — les templates dans le `localStorage` de votre navigateur.
+Les détails d'implémentation (bundler, composants, algorithme de layout, pipeline SVG → PDF, coordonnées) sont documentés dans [ARCHITECTURE.md](ARCHITECTURE.md).
 
 ---
 
