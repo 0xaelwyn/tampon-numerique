@@ -58,7 +58,7 @@ Importez votre PDF, glissez le tampon à l'endroit voulu, affinez la position au
   | Oswald | Condensé moderne |
   | Ultra | Slab expressif |
 
-- **Rotation** 0°–360°
+- **Rotation** −30° à +30°
 - **Opacité** réglable
 
 ### PDF
