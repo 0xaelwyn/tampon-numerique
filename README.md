@@ -66,7 +66,22 @@ Sauvegardez une configuration complète (textes, polices, couleur, forme, rotati
 
 ---
 
-## Mentions légales (France)
+## Ce que cet outil fait — et ne fait pas
+
+**Ce qu'il fait**
+Il appose un tampon **visuel** sur un PDF. Le document reste numérique, non dégradé, et peut être envoyé directement — sans impression, sans tampon physique, sans scan.
+
+C'est l'équivalent numérique du geste : imprimer → tamponner → scanner. En mieux, parce que le PDF ne perd pas en qualité.
+
+**Ce qu'il ne fait pas**
+Il n'applique aucune signature cryptographique. Le fichier produit **ne garantit pas l'intégrité du document** (une modification ultérieure ne serait pas détectable) et **n'a pas de valeur légale au sens du règlement eIDAS** (cachet électronique qualifié).
+
+**Pour quel usage**
+Documents internes, bons de livraison, validation de devis, courrier administratif courant — partout où le tampon physique suffisait jusqu'ici. Pour des documents engageant juridiquement la personne morale (facturation électronique B2B, marchés publics, actes réglementaires), un prestataire de services de confiance qualifié (PSCo agréé ANSSI) est nécessaire.
+
+---
+
+
 
 Articles R123-237 à R123-238 du Code de commerce — mentions recommandées sur un tampon d'entreprise :
 
