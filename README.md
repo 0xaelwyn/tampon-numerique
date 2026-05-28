@@ -10,7 +10,17 @@ Créez et apposez des tampons d'entreprise sur vos PDF — directement dans le n
 
 **En ligne** — ouvrez la page GitHub Pages du projet dans votre navigateur. Aucune installation requise.
 
-**En local** — clonez le dépôt et ouvrez `index.html` via un serveur HTTP local (par exemple `npx serve .` ou l'extension Live Server de VS Code). L'ouverture directe depuis le système de fichiers (`file://`) ne fonctionne pas car le chargeur utilise `fetch()` pour récupérer les assets.
+**En local** — clonez le dépôt et démarrez un serveur HTTP dans le dossier du projet :
+
+```bash
+git clone https://github.com/<votre-compte>/<votre-repo>.git
+cd <votre-repo>
+python3 -m http.server 8080
+```
+
+Puis ouvrez **http://localhost:8080** dans votre navigateur.
+
+> L'ouverture directe depuis le système de fichiers (`file://`) ne fonctionne pas car le chargeur utilise `fetch()` pour récupérer les assets.
 
 L'application (~2,6 Mo d'assets) embarque l'intégralité des librairies et des polices compressées. Aucune connexion internet n'est nécessaire une fois la page chargée.
 
