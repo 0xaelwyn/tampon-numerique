@@ -2,15 +2,17 @@
 
 Créez et apposez des tampons d'entreprise sur vos PDF — directement dans le navigateur, sans installation, sans serveur, sans internet.
 
-![offline](https://img.shields.io/badge/offline-100%25-brightgreen?style=flat-square) ![fichier unique](https://img.shields.io/badge/distribution-fichier%20unique-orange?style=flat-square) ![licence](https://img.shields.io/badge/licence-MIT-blue?style=flat-square)
+![offline](https://img.shields.io/badge/offline-100%25-brightgreen?style=flat-square) ![github pages](https://img.shields.io/badge/hosted-GitHub%20Pages-blue?style=flat-square) ![licence](https://img.shields.io/badge/licence-MIT-blue?style=flat-square)
 
 ---
 
 ## Utilisation
 
-Double-cliquez sur **`TamponNumerique.html`** — c'est tout.
+**En ligne** — ouvrez la page GitHub Pages du projet dans votre navigateur. Aucune installation requise.
 
-Le fichier (~2,6 Mo) embarque l'intégralité des librairies et des polices compressées. Aucune connexion internet n'est nécessaire.
+**En local** — clonez le dépôt et ouvrez `index.html` via un serveur HTTP local (par exemple `npx serve .` ou l'extension Live Server de VS Code). L'ouverture directe depuis le système de fichiers (`file://`) ne fonctionne pas car le chargeur utilise `fetch()` pour récupérer les assets.
+
+L'application (~2,6 Mo d'assets) embarque l'intégralité des librairies et des polices compressées. Aucune connexion internet n'est nécessaire une fois la page chargée.
 
 ### Workflow
 
