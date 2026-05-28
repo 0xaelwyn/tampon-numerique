@@ -61,7 +61,8 @@ App                        — composant racine, tout l'état
 | State | Type | Rôle |
 |-------|------|------|
 | `shape` | string | Forme (`circle` \| `rectangle` \| `hexagon` \| `diamond`) |
-| `ci` | number | Index couleur (0–5) |
+| `ci` | number | Index couleur (0–5 palette, `6` = couleur personnalisée) |
+| `customHex` | string | Couleur personnalisée (hex `#rrggbb`) — active quand `ci === 6` |
 | `fi` | number | Index police (0–5) |
 | `main` | string | Texte principal (séparateur `\n`) |
 | `sub` | string | Adresse (séparateur `\n`) |

@@ -1,8 +1,8 @@
 # Tampon Numérique
 
-Créez et apposez des tampons d'entreprise sur vos PDF — directement dans le navigateur, sans installation, sans serveur, sans internet.
+Créez et apposez des tampons d'entreprise sur vos PDF — directement dans le navigateur, sans installation.
 
-> **Vos PDF ne quittent jamais votre machine.** Tout le traitement (lecture, tamponnage, export) s'effectue localement dans votre navigateur. Aucun fichier n'est envoyé à un serveur.
+> **Vos PDF ne quittent jamais votre machine.** Tout le traitement (lecture, tamponnage, export) s'effectue localement dans votre navigateur. Aucun fichier n'est envoyé à un serveur applicatif — le site est statique et ne sert que les assets de l'interface.
 
 ![github pages](https://img.shields.io/badge/hosted-GitHub%20Pages-blue?style=flat-square) ![licence](https://img.shields.io/badge/licence-MIT-blue?style=flat-square)
 
@@ -24,7 +24,7 @@ Puis ouvrez **http://localhost:8080** dans votre navigateur.
 
 > L'ouverture directe depuis le système de fichiers (`file://`) ne fonctionne pas car le chargeur utilise `fetch()` pour récupérer les assets.
 
-L'application (~2,6 Mo d'assets) embarque l'intégralité des librairies et des polices compressées. Aucune connexion internet n'est nécessaire une fois la page chargée.
+L'application (~2,6 Mo d'assets) embarque l'intégralité des librairies et des polices compressées. Une fois la page chargée, aucun appel réseau n'est effectué vers un CDN ou un service tiers — le traitement reste 100 % local.
 
 ### Workflow
 
