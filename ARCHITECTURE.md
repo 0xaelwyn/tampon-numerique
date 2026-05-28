@@ -2,25 +2,32 @@
 
 ### Vue d'ensemble
 
-L'application est un **fichier HTML autonome** (~56 Ko de JSX + ~2,5 Mo de librairies/polices compressées). Pas de bundler au runtime, pas de `node_modules`, pas de build step — tout est résolu à l'ouverture du fichier dans le navigateur.
+L'application (~56 Ko de JSX + ~2,5 Mo de librairies/polices compressées) est découpée en fichiers statiques servis via GitHub Pages. Pas de bundler au runtime, pas de `node_modules`, pas de build step — tout est résolu à l'ouverture de la page dans le navigateur.
 
 ```
-TamponNumerique.html
-├── <script type="__bundler/manifest">   — index des assets (UUID → {data, compressed})
-├── <script type="__bundler/template">   — HTML source + JSX de l'app (JSON-encoded)
-└── <script>                             — loader : décompresse, crée des blob URLs,
-                                           injecte le template dans le DOM
+index.html                 — shell HTML (thumbnail de chargement + appel au loader)
+css/
+└── loader.css             — styles de l'écran de chargement
+js/
+└── loader.js              — loader : fetch des assets, décompression, injection du DOM
+data/
+├── manifest.json          — index des assets (UUID → {data base64, compressed, mime})
+├── template.json          — HTML source + JSX de l'app (JSON-encoded string)
+└── ext_resources.json     — mapping ressources externes (ex. worker PDF.js)
+.github/
+└── workflows/pages.yml    — déploiement automatique sur GitHub Pages à chaque push main
 ```
 
 ### Mécanisme de bundling
 
-Au chargement, le loader :
+Au chargement, le loader (`js/loader.js`) :
 
-1. Parse le manifest JSON (28 assets : librairies JS, fichiers woff2, worker PDF.js)
-2. Décode chaque asset en base64 → `Uint8Array`
-3. Décompresse via l'API native `DecompressionStream('gzip')` (pas de dépendance externe)
-4. Crée un `blob:` URL par asset et les injecte dans le template HTML (remplacement des UUID par leurs URL)
-5. Remplace le DOM par le template hydraté via `document.open() / write() / close()`
+1. Récupère en parallèle `data/manifest.json`, `data/template.json` et `data/ext_resources.json` via `fetch()`
+2. Parse le manifest JSON (28 assets : librairies JS, fichiers woff2, worker PDF.js)
+3. Décode chaque asset en base64 → `Uint8Array`
+4. Décompresse via l'API native `DecompressionStream('gzip')` (pas de dépendance externe)
+5. Crée un `blob:` URL par asset et les injecte dans le template HTML (remplacement des UUID par leurs URL)
+6. Remplace le DOM par le template hydraté via `DOMParser` + `replaceWith`
 
 Les polices Google Fonts (Cinzel, Stardos Stencil, Special Elite, Oswald, Ultra, Inter) sont embarquées en woff2 — leur CSS `@font-face` pointe vers des `blob:` URLs, donc elles s'affichent sans réseau.
 
