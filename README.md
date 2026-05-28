@@ -2,6 +2,8 @@
 
 Créez et apposez des tampons d'entreprise sur vos PDF — directement dans le navigateur, sans installation, sans serveur, sans internet.
 
+> **Vos PDF ne quittent jamais votre machine.** Tout le traitement (lecture, tamponnage, export) s'effectue localement dans votre navigateur. Aucun fichier n'est envoyé à un serveur.
+
 ![github pages](https://img.shields.io/badge/hosted-GitHub%20Pages-blue?style=flat-square) ![licence](https://img.shields.io/badge/licence-MIT-blue?style=flat-square)
 
 ---
