@@ -2,7 +2,7 @@
 
 Créez et apposez des tampons d'entreprise sur vos PDF — directement dans le navigateur, sans installation, sans serveur, sans internet.
 
-![offline](https://img.shields.io/badge/offline-100%25-brightgreen?style=flat-square) ![github pages](https://img.shields.io/badge/hosted-GitHub%20Pages-blue?style=flat-square) ![licence](https://img.shields.io/badge/licence-MIT-blue?style=flat-square)
+![github pages](https://img.shields.io/badge/hosted-GitHub%20Pages-blue?style=flat-square) ![licence](https://img.shields.io/badge/licence-MIT-blue?style=flat-square)
 
 ---
 
@@ -48,8 +48,8 @@ Importez votre PDF, glissez le tampon à l'endroit voulu, affinez la position au
 - Taille de police réglable **par zone** en temps réel
 - Centrage vertical automatique quel que soit le contenu
 - **4 formes** — cercle, rectangle, hexagone, losange
-- **6 coloris** — rouge, bleu, vert, violet, noir, or
-- **6 polices** (toutes offline)
+- **6 coloris** — rouge, bleu, vert, violet, noir, or + **couleur personnalisée** via sélecteur natif
+- **6 polices**
 
   | Police | Caractère |
   |--------|-----------|
