@@ -71,6 +71,10 @@ App                        — composant racine, tout l'état
 | `opa` | number | Opacité (0–1) |
 | `rot` | number | Rotation en degrés (−30 à +30) |
 | `autoDate` | bool | Mise à jour automatique de la date |
+| `freeMode` | bool | Mode texte libre (vs. structuré) |
+| `freeText` | string | Texte libre (séparateur `\n`, gras inline `**…**`) |
+| `freeFs` | number | Taille de police du texte libre |
+| `freeAlign` | string | Alignement (`left` \| `center` \| `right` \| `justify`) |
 
 **PDF**
 
@@ -101,6 +105,8 @@ curY = cy − totalH / 2    ← point de départ : tout est centré sur cy
 
 Chaque zone est ensuite placée séquentiellement en descendant `curY`, les baselines calculées à partir du haut des capitales (`curY + fs × CAP`).
 
+**Mode texte libre.** La fonction pure `freeGeom(cfg, size)` estime la largeur du bloc (ligne la plus longue × avance moyenne par glyphe, le gras comptant un peu plus large) et sa hauteur, puis en déduit les demi-extents `rx`/`ry` de la forme et un `viewBox` ajusté au contenu — la forme **épouse le texte** au lieu d'un carré fixe. `stampAspect(cfg)` renvoie le ratio largeur/hauteur correspondant (1 en mode structuré), utilisé pour ne pas déformer le tampon à l'écran et sur le PDF. Le gras inline est parsé par `parseBold()` en segments `<tspan>` ; l'alignement `justify` étire chaque ligne (sauf la dernière) via `textLength`/`lengthAdjust`.
+
 ### Pipeline SVG → PDF
 
 ```
@@ -113,12 +119,12 @@ StampSVG (React)
                            └─ drawImage() avec rotation pivot-centré
 ```
 
-La rotation est appliquée autour du **centre** du tampon. pdf-lib pivote nativement autour du coin bas-gauche de l'image, donc la position est recalculée :
+L'empreinte du tampon vaut `stampW = stampPt` en largeur et `stampH = stampPt / stampAspect(cfg)` en hauteur (égales en mode structuré). La rotation est appliquée autour du **centre** du tampon. pdf-lib pivote nativement autour du coin bas-gauche de l'image, donc la position est recalculée :
 
 ```js
-const cx = pdfX + stampPt/2,  cy = pdfY + stampPt/2;
-const xNew = cx − (stampPt/2)×cos + (stampPt/2)×sin;
-const yNew = cy − (stampPt/2)×sin − (stampPt/2)×cos;
+const cx = pdfX + stampW/2,  cy = pdfY + stampH/2;
+const xNew = cx − (stampW/2)×cos + (stampH/2)×sin;
+const yNew = cy − (stampW/2)×sin − (stampH/2)×cos;
 ```
 
 ### Conversion de coordonnées
@@ -152,3 +158,7 @@ L'interface utilise des variables CSS déclarées sur `:root` :
 ### Export SVG avec polices embarquées
 
 `getEmbeddedFontCSS()` lit les règles `@font-face` déjà chargées dans les stylesheets du document (dont les `url()` pointent vers des `blob:` URLs après hydratation) et les injecte dans le `<svg>` exporté via un élément `<style>`. Le fichier SVG est ainsi **auto-suffisant** — les polices s'affichent correctement même sans l'application.
+
+### Lien partageable
+
+`collectCfg()` sérialise la configuration du tampon, `encodeCfg()` l'encode en **base64url** (`btoa(unescape(encodeURIComponent(json)))`, unicode-safe) et la place dans le hash (`#cfg=…`). Au chargement, un `useEffect` lit le hash, appelle `applyCfg()` pour restaurer l'état, puis nettoie l'URL via `history.replaceState`. Tout reste côté navigateur — aucune donnée n'est transmise.

@@ -29,11 +29,12 @@ L'application (~2,6 Mo d'assets) embarque l'intégralité des librairies et des 
 ### Workflow
 
 **1 — Personnaliser**
-Configurez le texte principal (multiligne), l'adresse, le numéro de TVA et la date dans le panneau gauche. Choisissez la forme, la couleur, la police et l'angle de rotation. L'aperçu se met à jour en temps réel.
+Configurez le texte principal (multiligne), l'adresse, le numéro de TVA et la date dans le panneau gauche — ou passez en **mode texte libre** pour saisir un texte sans contrainte. Choisissez la forme, la couleur, la police et l'angle de rotation. L'aperçu se met à jour en temps réel.
 
-**2 — Exporter**
+**2 — Exporter ou partager**
 - **SVG** — vectoriel, polices embarquées, prêt pour Word ou Illustrator
 - **PNG** — 1 200 × 1 200 px, prêt pour email ou présentation
+- **Partager** — copie un lien qui recrée le tampon à l'identique (toute la config est encodée dans l'URL, rien n'est envoyé à un serveur)
 
 **3 — Apposer sur un PDF**
 Importez votre PDF, glissez le tampon à l'endroit voulu, affinez la position au clavier (←↑→↓, +⇧ pour un pas de 10 px), choisissez les pages à tamponner, téléchargez.
@@ -44,8 +45,9 @@ Importez votre PDF, glissez le tampon à l'endroit voulu, affinez la position au
 
 ### Tampon
 
-- Texte principal **multiligne** avec statuts prédéfinis (APPROUVÉ, VALIDÉ, CONFIDENTIEL, URGENT…)
-- Adresse sur deux lignes, N° TVA intracommunautaire, date
+- Deux modes de saisie :
+  - **Structuré** — texte principal **multiligne** (statuts prédéfinis : APPROUVÉ, VALIDÉ, CONFIDENTIEL, URGENT…), adresse sur deux lignes, N° TVA intracommunautaire, date
+  - **Texte libre** — un bloc de texte **sans limite**, avec **alignement** (gauche / centré / droite / justifié), **gras inline** via la syntaxe `**mot**`, et une forme qui **s'adapte automatiquement** au contenu (aperçu et PDF)
 - **Date automatique** — toggle pour afficher la date du jour, mise à jour à minuit
 - Taille de police réglable **par zone** en temps réel
 - Centrage vertical automatique quel que soit le contenu
@@ -74,9 +76,15 @@ Importez votre PDF, glissez le tampon à l'endroit voulu, affinez la position au
 - Modes d'application : **page courante**, **toutes les pages**, **plage** (ex. 3–7)
 - Navigation multi-pages
 
-### Templates
+### Templates & partage
 
 Sauvegardez une configuration complète (textes, polices, couleur, forme, rotation, opacité) et rechargez-la en un clic. Les templates persistent entre les sessions via `localStorage`.
+
+Le bouton **Partager** encode la configuration courante dans un lien (`…/#cfg=…`) : l'ouvrir recrée le tampon à l'identique. Tout se passe dans le navigateur, aucune donnée n'est transmise.
+
+### Interface
+
+Mise en page **responsive** — les colonnes s'empilent sur tablette et mobile.
 
 ---
 
