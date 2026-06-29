@@ -80,6 +80,8 @@ Importez votre PDF, glissez le tampon à l'endroit voulu, affinez la position au
 
 Sauvegardez une configuration complète (textes, polices, couleur, forme, rotation, opacité) et rechargez-la en un clic. Les templates persistent entre les sessions via `localStorage`.
 
+Une fois un template chargé, le bouton **Mettre à jour** écrase ce template avec la configuration courante (au lieu de créer un doublon), avec confirmation visuelle ; **Enregistrer comme nouveau** reste disponible pour en créer un autre.
+
 Le bouton **Partager** encode la configuration courante dans un lien (`…/#cfg=…`) : l'ouvrir recrée le tampon à l'identique. Tout se passe dans le navigateur, aucune donnée n'est transmise.
 
 ### Interface
